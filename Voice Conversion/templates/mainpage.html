@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Voice Conversion</title>
+    <meta charset="utf-8" name="viewport" content=" width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <link href={{ url_for("static", filename = "css/mainpage.css")}} rel="stylesheet" />
+    <link rel="shortcut icon" href={{ url_for('static', filename='images/material/favicon.ico') }}>
+</head>
+
+<body>
+    <div class="body">
+        <div class="title">
+            Welcome to the Voice Conversion
+        </div>
+    </div>
+
+    <div class="function_list">
+        <form method="post" action="/upload">
+            <input type="submit" value="Upload Existing Wave File">
+        </form>
+        <br>
+        <br>
+        <form method="post" action="/record">
+            <input type="submit" value="Record New Wave File">
+        </form>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Voice Conversion/Upload</title>
+    <meta charset="utf-8" name="viewport" content=" width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <link href={{ url_for("static", filename ="font-awesome/css/font-awesome.min.css")}} rel="stylesheet" />
+    <link href={{ url_for("static", filename ="css/upload.css")}} rel="stylesheet" />
+    <link rel="shortcut icon" href={{ url_for('static', filename='images/material/favicon.ico') }}>
+    <script type="text/javascript" src={{ url_for("static", filename ="js/upload.js")}}></script>
+    <script type="text/javascript" src={{ url_for("static", filename ="js/jquery.min.js")}}></script>
+</head>
+
+<body>
+    <div class="body">
+        <span id="back">
+            <p onclick="page_jump('/')"><i class="fa fa-angle-double-left"></i>
+                &nbsp;Back to Main Page
+            </p>
+        </span>
+        <div class="title">
+            Upload Existing Wave File
+        </div>
+        <br><br><br><br>
+        <div class="group group1">
+            <input type="file" id="btn_file3" name="consignerRdFile" accept=".wav, .WAV" style="display:none" onchange="img1Change(event,'consignerRdSign')">
+            <span id="a">
+                <audio controls="controls" id="wave1" hidden="true">
+                    <source src={{ url_for("static", filename = "audio/blank.wav")}}>
+                </audio>
+                <img id="consignerRdSign" onclick="F_Open_dialog('btn_file3')" src={{ url_for("static", filename = "images/material/blank.jpg")}}
+                    width="100%" />
+                <p onclick="F_Open_dialog('btn_file3')"><i class="fa fa-file-audio-o"></i>
+                    &nbsp;Upload Existing Wave File</p>
+            </span>
+            <span id="b">
+                <p onclick="Play1()"><i class="fa fa-youtube-play"></i>
+                    &nbsp;Play the Source Voice</p>
+            </span>
+        </div>
+        <div class="column">
+            <audio controls="controls" id="slt_voice" hidden="true">
+                <source src={{ url_for("static", filename = "targets/slt.wav")}}>
+            </audio>
+            <table>
+                <tr>
+                    <td>
+                        <button onclick="Play('slt_voice')" onmouseover="preview('slt_img')" onmouseout="out('slt_img')">
+                            <span class="button-text"><i class="fa fa-play"></i>&nbsp;Play</span>
+                        </button>
+                    </td>
+                    <td>
+                        <img id="slt_img" width="200" src={{ url_for("static", filename = "targets/slt.jpg")}} />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button onclick="convert()">
+                            <span class="button-text"><i class="fa fa-arrow-right"></i>&nbsp;Run</span>
+                        </button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="group group2">
+            <span id="a">
+                <audio controls="controls" id="wave2" hidden="true">
+                    <source src={{ url_for("static", filename = "audio/blank.wav")}}>
+                </audio>
+                <img id="result" src={{ url_for("static", filename ="images/material/blank.jpg")}} width="100%" />
+                <p><i class="fa fa-cloud-download"></i>&nbsp;&nbsp;Converted Voice</p>
+            </span>
+            <span id="b">
+                <p onclick="Play2()"><i class="fa fa-youtube-play"></i>
+                    &nbsp;Play the Converted Voice</p>
+            </span>
+        </div>
+    </div>
+</body>
+
+</html>

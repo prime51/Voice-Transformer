@@ -1,0 +1,137 @@
+body {
+    background: url('../images/material/background.jpg') no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    visibility: visible;
+}
+
+.body {
+    width: 90%;
+}
+
+.title {
+    color: white;
+    font-family: Georgia;
+    font-size: 50px;
+    font-style: italic;
+    position: absolute;
+    left: 25%;
+    top: 10px;
+    text-shadow: 2.5px 5px 10px steelblue;
+}
+
+.group {
+    width: 480px;
+    margin: 35px;
+    padding: 15px;
+    top: 78px;
+    position: absolute;
+    border-radius: 5%;
+    background-color: white;
+    opacity: 0.95;
+    filter: alpha(opacity = 95);
+    float: left;
+}
+
+.group1 {
+    left: 0%;
+    animation-name: change1;
+    animation-duration: 1.5s;
+}
+
+@keyframes change1 {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0.95;
+    }
+}
+
+.column {
+    position: absolute;
+    left: 46%;
+    top: 260px;
+    width: 100px;
+    /* margin: 35px;
+    padding: 15px; */
+    float: left;
+    z-index: 10;
+}
+
+td {
+    text-align: center;
+}
+
+button,td input{
+    font-family: Georgia;
+    width: 100px;
+    height: 45px;
+    margin: 3px;
+    /* background-color: #B8B8DC; */
+    background-color: #B8BBFF;
+    opacity: 0.95;
+    filter: alpha(opacity = 95);
+    border: none;
+    color: white;
+    border-radius: 7px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+}
+
+.button-text:hover {
+    cursor: pointer;
+    text-shadow: 0.5px 0.5px 0.5px white;
+}
+
+.group2 {
+    left: 53%;
+    animation-name: change2;
+    animation-duration: 1.5s;
+}
+
+@keyframes change2 {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0.95;
+    }
+}
+
+p {
+    color: #6666CC;
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+p:hover {
+    cursor: pointer;
+    color: #9966CC;
+    text-shadow: 5px 5px 5px #CC99CC;
+}
+
+#stop, #record, #play, #clear{
+    float: left;
+    width: 25%;
+}
+
+#back{
+    position: absolute;
+    left : 1%;
+    top: 0px;
+}
+
+#slt_img{
+    display: none;
+    position: absolute;
+    left: 110%;
+    top: -30px;
+}
