@@ -22,7 +22,7 @@ class Default:
     n_mels = 90
     n_mfcc = 60
     n_iter = 60  # Number of inversion iterations
-    duration = 2
+    duration = 5
     max_db = 40
     min_db = -50
 

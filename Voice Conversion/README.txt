@@ -11,4 +11,6 @@
 -savepath: 保存的路径（目录名）
 
 
-如：python ./project/final_conversion.py -net1 model-17900 -net2 model-17900 -file ./static/audio/blank.wav -savepath ./static/audio/convert/
+如：
+python ./project/final_conversion.py -case ksp -net1 model-17900 -net2 model-12000 -file ./static/audio/blank.wav -savepath ./static/audio/convert/
+python ./project/final_conversion.py -net1 model-17900 -net2 model-17900 -file ./static/audio/blank.wav -savepath ./static/audio/convert/

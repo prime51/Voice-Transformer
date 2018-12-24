@@ -87,6 +87,8 @@ def do_convert(args, logdir1, logdir2):
     # Load graph
     model = Net2()
 
+    wav_data, _ = librosa.load(args.file, sr=hp.Default.sr)
+    ori_len = len(wav_data)
     data = get_mfccs_and_spectrogram(args.file)
 
     ckpt1 = '{}/{}'.format(logdir1,
@@ -106,28 +108,29 @@ def do_convert(args, logdir1, logdir2):
     predictor = OfflinePredictor(pred_conf)
 
     audio, y_audio, ppgs = convert(predictor, data)
+    audio = audio[0][:ori_len]
 
     target_file = args.file.split('/')[-1]
-    portion = os.path.splitext(target_file)
     # converted_file = target_file.split('.')[0] + '_converted.wav'
+    portion = os.path.splitext(target_file)
     converted_file = portion[0] + '.wav'
-    write_wav(audio[0], hp.Default.sr, args.savepath + converted_file)
+    write_wav(audio, hp.Default.sr, args.savepath + converted_file)
 
-    # Write the result
-    tf.summary.audio('A', y_audio, hp.Default.sr,
-                     max_outputs=hp.Convert.batch_size)
-    tf.summary.audio('B', audio, hp.Default.sr,
-                     max_outputs=hp.Convert.batch_size)
+    # # Write the result
+    # tf.summary.audio('A', y_audio, hp.Default.sr,
+    #                  max_outputs=hp.Convert.batch_size)
+    # tf.summary.audio('B', audio, hp.Default.sr,
+    #                  max_outputs=hp.Convert.batch_size)
 
-    # Visualize PPGs
-    heatmap = np.expand_dims(ppgs, 3)  # channel=1
-    tf.summary.image('PPG', heatmap, max_outputs=ppgs.shape[0])
+    # # Visualize PPGs
+    # heatmap = np.expand_dims(ppgs, 3)  # channel=1
+    # tf.summary.image('PPG', heatmap, max_outputs=ppgs.shape[0])
 
-    writer = tf.summary.FileWriter(args.savepath)
-    with tf.Session() as sess:
-        summ = sess.run(tf.summary.merge_all())
-    writer.add_summary(summ)
-    writer.close()
+    # writer = tf.summary.FileWriter(args.savepath)
+    # with tf.Session() as sess:
+    #     summ = sess.run(tf.summary.merge_all())
+    # writer.add_summary(summ)
+    # writer.close()
 
     # session_conf = tf.ConfigProto(
     #     allow_soft_placement=True,
