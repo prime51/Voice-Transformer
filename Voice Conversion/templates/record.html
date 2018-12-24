@@ -41,24 +41,31 @@
             </span>
         </div>
         <div class="column">
-            <audio controls="controls" id="slt_voice" hidden="true">
+            <audio controls="controls" id="target_voice" hidden="true">
                 <source src={{ url_for("static", filename = "targets/slt.wav")}}>
             </audio>
             <table>
                 <tr>
                     <td>
-                        <button onclick="Play('slt_voice')" onmouseover="preview('slt_img')" onmouseout="out('slt_img')">
-                            <span class="button-text"><i class="fa fa-play"></i></span>
+                        <button onclick="change_target()">
+                            <span id="target_name"><i class="fa fa-refresh"></i>&nbsp;slt</span>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button onclick="Play('target_voice')" onmouseover="preview('target_img')" onmouseout="out('target_img')">
+                            <span class="button-text"><i class="fa fa-play"></i>&nbsp;Play</span>
                         </button>
                     </td>
                     <td>
-                        <img id="slt_img" width="200" src={{ url_for("static", filename = "targets/slt.jpg")}} />
+                        <img id="target_img" width="200" src={{ url_for("static", filename = "targets/slt.jpg")}} />
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <button onclick="convert()">
-                            <span class="button-text"><i class="fa fa-arrow-right"></i></span>
+                            <span class="button-text"><i class="fa fa-arrow-right"></i>&nbsp;Run</span>
                         </button>
                     </td>
                 </tr>

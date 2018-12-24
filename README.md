@@ -19,7 +19,8 @@
 
 1. python voice_conversion.py
 
-2. Open with a browser @http://127.0.0.1:5000/
+2. Open with a browser @http://127.0.0.1:5000/ (Best is chrome)
+
 |   ![mainpage.png](material/mainpage.png)    |
 | :----: |
 |  mainpage    |
@@ -32,6 +33,6 @@
 
 ## Collaborators
 
-[prime51](https://github.com/prime51)
-
 [jaingmengmeng](https://github.com/jaingmengmeng)
+
+[prime51](https://github.com/prime51)

@@ -88,6 +88,11 @@ button,td input{
     text-shadow: 0.5px 0.5px 0.5px white;
 }
 
+#target_name:hover {
+    cursor: pointer;
+    text-shadow: 0.5px 0.5px 0.5px white;
+}
+
 .group2 {
     left: 53%;
     animation-name: change2;
@@ -129,9 +134,9 @@ p:hover {
     top: 0px;
 }
 
-#slt_img{
+#target_img{
     display: none;
     position: absolute;
     left: 110%;
-    top: -30px;
+    top: 10px;
 }
