@@ -30,7 +30,7 @@
 |    ![upload.png](material/upload.png)   |
 |  upload   |
 
-3. Follow the instructions oh the net page and do voice conversion!
+3. Follow the instructions on the net page and do voice conversion!
 
 ## Collaborators
 
