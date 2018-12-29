@@ -5,6 +5,25 @@ var wavepath2 = "/static/audio/blank.wav";
 var recorder;
 var audio = document.getElementById('#wave1');
 var loadinggif = "/static/images/material/newloading.gif";
+var target = "slt";
+
+function change_target() {
+    if (target == "slt") {
+        target = "ksp";
+        var audio = document.getElementById("target_voice");
+        audio.src = "./static/targets/ksp.wav";
+        audio.load();
+        document.getElementById("target_img").src = "./static/targets/ksp.jpg";
+    }
+    else {
+        target = "slt";
+        var audio = document.getElementById("target_voice");
+        audio.src = "./static/targets/slt.wav";
+        audio.load();
+        document.getElementById("target_img").src = "./static/targets/slt.jpg";
+    }
+    $("#target_name").html('<i class="fa fa-refresh"></i>&nbsp;' + target);
+}
 
 function page_jump(page_url) {
     window.location.href = page_url;
@@ -19,9 +38,11 @@ function convert() {
     var fileName = waveurl.substring(0, fileLen);
     var picpath = fileName + '.jpg';
     document.getElementById('result').src = loadinggif;
-    $.get('/upload/convert', { 'method': 'GET', 'data': waveurl }, function success() {
-        imgpath2 = "/static/images/convert/" + picpath;
-        wavepath2 = "/static/audio/convert/" + waveurl;
+    var send_data = target + ':' + waveurl;
+    alert(send_data);
+    $.get('/upload/convert', { 'method': 'GET', 'data': send_data }, function success() {
+        imgpath2 = "/static/images/convert/" + target + '/' + picpath;
+        wavepath2 = "/static/audio/convert/" + target + '/' + waveurl;
         document.getElementById('result').src = imgpath2;
         var audio = document.getElementById('wave2');
         audio.src = wavepath2;
@@ -66,7 +87,7 @@ function stopRecording() {
     hf.innerHTML = hf.download;
     hf.click();
     var waveurl = hf.download;
-    // alert(waveurl);
+    alert(waveurl);
     var fileLen = waveurl.lastIndexOf(".");
     var fileName = waveurl.substring(0, fileLen);
     var picpath = fileName + '.jpg';

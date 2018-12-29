@@ -74,27 +74,33 @@ def recordsth():
 
 @app.route('/upload/convert', methods=['GET'])
 def uploadconvert():
-    filename = str(request.values.get('data'))
+    get_data = str(request.values.get('data')).split(':')
+    target = get_data[0]
+    filename = get_data[1]
     print('filename: ' + filename)
     picpath1 = "images/blank.jpg"
     # picpath2 = picpath1
     if(filename != 'None'):
         portion = os.path.splitext(filename)
         if portion[1] == ".wav" or ".WAV":
-            if not os.path.exists('./static/audio/convert/' + filename):
-                cmd = 'python ./project/final_conversion.py -net1 model-17900 -net2 model-17900 -file ./static/audio/' + filename + ' -savepath ./static/audio/convert/'
+            if not os.path.exists('./static/audio/convert/' + target + '/' + filename):
+                # cmd = 'python ./project/final_conversion.py -case ' + target + ' -net1 model-17900 -net2 model-17900 -file ./static/audio/' + filename + ' -savepath ./static/audio/convert/' + target + '/'
+                if target == 'slt':
+                    cmd = 'python ./project/final_conversion.py -case slt -net1 model-17900 -net2 model-17900 -file ./static/audio/' + filename + ' -savepath ./static/audio/convert/slt/'
+                elif target == 'ksp':
+                    cmd = 'python ./project/final_conversion.py -case ksp -net1 model-17900 -net2 model-12000 -file ./static/audio/' + filename + ' -savepath ./static/audio/convert/ksp/'
                 print('cmd: ' + cmd)
                 os.system(cmd)
             else:
                 print('converted before.')
             picname = portion[0] + ".jpg"
-            # filepath = 'http://127.0.0.1:5000/static/audio/convert/' + filename
-            filepath = './static/audio/convert/' + filename
+            # filepath = 'http://127.0.0.1:5000/static/audio/convert/' + target + '/' + filename
+            filepath = './static/audio/convert/' + target + '/' + filename
             print('filepath: ' + filepath)
-            picpath1 = 'images/convert/' + picname
+            picpath1 = 'images/convert/' + target + '/' + picname
             if not os.path.exists('./static/' + picpath1):
                 cmd = 'python draw_wave.py ' + filepath
-                print('cmd: '+cmd)
+                print('cmd: ' + cmd)
                 os.system(cmd)
             else:
                 print('exist.')
