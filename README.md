@@ -21,8 +21,6 @@
 2. cd Voice Conversion/
 3. python voice_conversion.py
 4. Open with a browser @http://127.0.0.1:5000/
-5. python voice_conversion.py
-6. Open with a browser @http://127.0.0.1:5000/ (Best is chrome)
 
 |   ![mainpage.png](material/mainpage.png)    |
 | :----: |
