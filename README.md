@@ -18,16 +18,14 @@
 ## Tips
 
 <<<<<<< HEAD
+
 1. pip install -r requirements.txt
 2. cd Voice Conversion/
 3. python voice_conversion.py
 4. Open with a browser @http://127.0.0.1:5000/
-=======
-1. python voice_conversion.py
+5. python voice_conversion.py
+6. Open with a browser @http://127.0.0.1:5000/ (Best is chrome)
 
-2. Open with a browser @http://127.0.0.1:5000/ (Best is chrome)
-
->>>>>>> 5e14979528500bc99a54603dcb8bf1f141915ae6
 |   ![mainpage.png](material/mainpage.png)    |
 | :----: |
 |  mainpage    |
