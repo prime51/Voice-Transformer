@@ -17,8 +17,6 @@
 
 ## Tips
 
-<<<<<<< HEAD
-
 1. pip install -r requirements.txt
 2. cd Voice Conversion/
 3. python voice_conversion.py
