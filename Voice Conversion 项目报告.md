@@ -62,9 +62,9 @@ graph LR
 
 #### mainpage
 
-| ![mainpage](1.png) |
-| :----------------: |
-|      mainpage      |
+| ![mainpage](material/mainpage.png) |
+| :--------------------------------: |
+|              mainpage              |
 
 **mainpage** 有两个按钮，**Upload Existing Wave File** 和 **Record New Wave File**，分别对应的功能是跳转到 **uploadpage** 和 **recordpage**。
 
@@ -73,9 +73,9 @@ graph LR
 #### uploadpage
 
 
-| ![uploadpage](3.png) |
-| :------------------: |
-|      uploadpage      |
+| ![uploadpage](material/uploadpage.png) |
+| :------------------------------------: |
+|               uploadpage               |
 
 **uploadpage** 可以分为三个部分，左边是上传本地的wav文件，作为转换前的音频文件，但是因为后端的路径问题没有解决，所以这里只可以上传 **/Voice Conversion/static/audio/** 文件夹下面的wav文件。这里会把上传的音频的频谱图绘制并显示在页面中，用于查看最后的效果。中间是三个按钮，第一个是切换目标声音的按钮，因为项目时间有限，我们只训练了两个目标人的声音—— **slt** 和 **ksp**，所以目标声音只能在两者之间切换。第二个按钮是播放目标声音的一段示例录音。第三个按钮则是开始将源声音转换成目标声音，转换的过程大概需要花费 **30s-50s** 时间，需要测试人耐心等待。转换成功后的语音的频谱图将会在右边显示出来，可以通过点击 **Play the converted voice** 按钮来播放转换后的语音，查看最终的效果。
 
@@ -83,9 +83,9 @@ graph LR
 
 #### recordpage
 
-| ![recordpage](2.png) |
-| :------------------: |
-|      recordpage      |
+| ![recordpage](material/recordpage.png) |
+| :------------------------------------: |
+|               recordpage               |
 
 **recordpage** 和 **uploadpage** 页面上大致类似，主要是源声音的来源不同，可以临时录制一段长不超过10s的音频，保存在 **/Voice Conversion/static/audio/** 文件夹下面，点击 **Run** 按钮即可开始转换。
 
