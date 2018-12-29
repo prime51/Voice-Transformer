@@ -17,9 +17,10 @@
 
 ## Tips
 
-1. python voice_conversion.py
-
-2. Open with a browser @http://127.0.0.1:5000/
+1. pip install -r requirements.txt
+2. cd Voice Conversion/
+3. python voice_conversion.py
+4. Open with a browser @http://127.0.0.1:5000/
 |   ![mainpage.png](material/mainpage.png)    |
 | :----: |
 |  mainpage    |
